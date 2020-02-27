@@ -1,0 +1,15 @@
+#alert {
+  position: fixed;
+  top: .5rem;
+  left: calc(50% - 100px);
+  z-index: 1000;
+  background-color: dimgrey;
+  color: var(--light-color);
+  width: 15rem;
+  min-height: 3rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+

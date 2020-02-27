@@ -1,0 +1,19 @@
+.user {
+  background-color: var(--light-color);
+  border-radius: 20px;
+  margin: .5rem auto;
+  display: flex;
+  max-width: 35rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: .5rem .3rem;
+  color: var(--primary-color);
+}
+
+#inner-block {
+  display: flex;
+}
+
+.btn {
+  margin-left: 1rem;
+}

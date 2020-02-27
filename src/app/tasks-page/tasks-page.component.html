@@ -1,0 +1,66 @@
+<main>
+<section class="card">
+    <header>
+      <img [src]="avatarUrl" (error)="fallbackImage()" alt="user avatar" />
+      <h1>Hello,<br/>{{username}}</h1>
+    </header>
+    <div class="card-body">
+      <p *ngIf="!showCreateForm">Click to create a new task to do</p>
+      <div class="btn-group">
+        <button class="btn" type="button" (click)="showForm()">New Task <i class="fas"
+                                                                           [ngClass]="{'fa-angle-down': !showCreateForm,
+                                                                                'fa-angle-up': showCreateForm}"></i></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="createTask()" *ngIf="showCreateForm" id="createForm">
+        <div class="control-group">
+          <label for="create-priority">Priority</label>
+          <select formControlName="priority" id="create-priority" class="active-form">
+            <option value="0">low</option>
+            <option value="1">middle</option>
+            <option value="2">high</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="create-description">Description</label>
+          <textarea type="text" formControlName="description" id="create-description" class="active-form"></textarea>
+        </div>
+        <div class="btn-group">
+          <button type="submit" [disabled]="submitted||form.invalid" class="btn btn-success">Save</button>
+          <button type="button" (click)="reset()" class="btn">Reset</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="card">
+    <header><h1>Today</h1></header>
+    <div class="card-body">
+      <div id="date">
+        <h2>{{date | date: 'EEEE'}}</h2>
+        <h2>{{date | date: 'dd'}}</h2>
+        <h2>{{date | date: 'MMMM'}}</h2>
+        <h2>{{date | date: 'yyyy'}}</h2>
+      </div>
+    </div>
+  </section>
+<section class="right-block" infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="500"
+         (scrolled)="onScroll()">
+  <div class="control-group">
+    <label for="filter">Sort By</label>
+    <select [(ngModel)]="query" id="filter" (change)="setQuery()">
+      <option value="updatedAt:desc" selected>Date</option>
+      <option value="priority:desc">Priority</option>
+      <option value="completed:asc">Non-completed first</option>
+      <option value="completed:desc">Completed first</option>
+    </select>
+  </div>
+  <div *ngIf="tasks; else loading" id="tasks">
+    <app-task *ngFor="let item of tasks" [task] = "item" (removeTask)="refreshTasks($event)">
+    </app-task>
+  </div>
+</section>
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>
+</main>

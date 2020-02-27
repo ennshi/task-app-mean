@@ -1,0 +1,12 @@
+<section class="user">
+  <div><p>{{user._id.toString()}}</p></div>
+  <div><p>{{user.createdAt | date: "dd/MM/yyyy"}}</p></div>
+  <div><p>{{user.email}}</p></div>
+  <div id="inner-block">
+    <div>
+      <p>{{user.name}}</p>
+      <p>{{user.role}}</p>
+    </div>
+    <button class="btn" (click)="delete()">Delete</button>
+  </div>
+</section>

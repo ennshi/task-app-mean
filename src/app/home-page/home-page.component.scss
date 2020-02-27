@@ -1,0 +1,70 @@
+span {
+  color: var(--danger-color);
+  font-family: 'Suez One', serif;
+}
+section{
+  min-width: 40vw;
+  max-width: 16rem;
+  margin: 2rem auto;
+  color: white;
+  header {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: 0.04rem;
+  line-height: 2rem;
+}
+
+button {
+  margin-top: .5rem;
+}
+
+p {
+  margin-top: .5rem;
+  color: var(--addition-color);
+  animation: paragraph;
+  animation-duration: 5s;
+  text-align: center;
+  animation-timing-function: ease-in;
+}
+
+#img-block {
+  img {
+    max-width: 10rem;
+    margin-top: .5rem;
+    &:hover {
+      animation: turn 1s infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+#login-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+@media screen and (min-width: 750px) {
+  #login-block {
+    margin-right: 4rem;
+  }
+  #img-block {
+    img {
+      margin-left: -3rem;
+    }
+  }
+}
+@keyframes turn {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
+@keyframes paragraph {
+  from {opacity: 0;}
+  to {opacity: 1}
+}
+

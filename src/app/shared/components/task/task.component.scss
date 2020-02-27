@@ -1,0 +1,87 @@
+$card-border: 15px solid;
+
+.task {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  font-family: 'Montserrat', sans-serif;
+  margin: .4rem .1rem;
+  border-radius: 20px;
+  padding: .5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  width: 98vw;
+}
+
+form {
+  box-sizing: border-box;
+  margin: 0 .5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+textarea {
+  margin: .5rem;
+  width: 48vw;
+  max-width: 20rem;
+  font-size: 1.2rem;
+  padding-left: .5rem;
+  min-height: 2.5rem;
+  &.active-form {
+    font-size: .9rem;
+  }
+}
+
+p {
+  font-size: .8rem;
+  margin-bottom: .2rem;
+}
+
+fieldset {
+  border: none;
+}
+
+.priority-low {
+  border-left: var(--success-color) $card-border;
+}
+
+.priority-middle {
+  border-left: var(--addition-color) $card-border;
+}
+
+.priority-high {
+  border-left: var(--danger-color) $card-border;
+}
+
+.completed-task {
+  text-decoration: line-through;
+}
+
+.btn-block {
+  min-width: 4rem;
+}
+
+.btn {
+  margin: .5rem 0;
+  width: 4.5rem;
+  padding: .5rem .4rem;
+}
+@media screen and (min-width: 500px) {
+  .task {
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 710px) {
+  .task {
+    width: 30rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  form {
+    margin: 0 1rem;
+  }
+  .task {
+    width: 33rem;
+  }
+}

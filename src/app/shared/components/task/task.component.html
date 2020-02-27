@@ -1,0 +1,40 @@
+<section class="task" [ngClass]="{'priority-low': task.priority == 0,
+              'priority-middle': task.priority == 1,
+              'priority-high': task.priority == 2}">
+  <form [formGroup]="form">
+    <fieldset [disabled]="editMode ? null : 'disabled'">
+      <div *ngIf="editMode" class="control-group">
+        <label for="priority_{{taskFormId}}">Priority</label>
+        <select formControlName="priority" id="priority_{{taskFormId}}" [(ngModel)]="task.priority" [ngClass]="{'active-form': editMode}">
+          <option value="0">low</option>
+          <option value="1">middle</option>
+          <option value="2">high</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <div *ngIf="editMode">
+          <label for="description_{{taskFormId}}">Description</label>
+        </div>
+        <textarea formControlName="description" id="description_{{taskFormId}}" [(ngModel)]="task.description" [ngClass]="{'active-form': editMode, 'completed-task': task.completed}"></textarea>
+      </div>
+    </fieldset>
+    <div *ngIf="editMode; else nonEdit">
+      <div class="btn-group">
+        <button (click)="save()" [disabled]="submittedSave || form.invalid
+                      || (form.get('description').pristine&&form.get('priority').pristine)" class="btn btn-success">Save</button>
+        <button class="btn" (click)="reset()">Reset</button>
+      </div>
+    </div>
+  </form>
+  <ng-template #nonEdit>
+    <div class="btn-block">
+      <p>{{task.updatedAt | date:'dd/MM/yy HH:mm' }}</p>
+      <button class="btn-icon" type="button" (click)="completed()" [disabled]="submitted">
+        <i class="fas" [ngClass]="{'fa-check': !task.completed, 'fa-undo': task.completed}"></i>
+      </button>
+      <button class="btn-icon" type="button" (click)="editTaskForm()" [disabled]="submitted"><i class="fas fa-edit"></i></button>
+      <button class="btn-icon" type="button" (click)="remove()" [disabled]="submitted"><i class="fas fa-trash-alt"></i></button>
+    </div>
+  </ng-template>
+</section>
+

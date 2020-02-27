@@ -1,0 +1,61 @@
+<section class="profile-container">
+  <section id="avatar-container">
+    <header><h1>Profile</h1></header>
+    <div class="img-container" *ngIf="user && !hideAvatar">
+      <img [src]="avatarUrl" (error)="fallbackImage()" alt="user avatar" />
+    </div>
+    <div class="btn-group">
+      <button class="btn" type="button" (click)="showForm()">Change Avatar <i class="fas"
+                                                                              [ngClass]="{'fa-angle-down': !changeAvatar,
+                                                                                'fa-angle-up': changeAvatar}"></i></button>
+    </div>
+    <div *ngIf="changeAvatar">
+      <form [formGroup]="avatarForm" (ngSubmit)="addAvatar()">
+        <div class="control-group">
+          <input type="file" id="avatar" formControlName="avatarImg" (change)="selectImg($event)"/>
+          <div class="validation" *ngIf="avatarForm.invalid && avatarForm.touched && !avatarForm.pristine">
+            <small>Please add an avatar (jpg, jpeg or png) and smaller than 1MB</small>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success" [disabled]="avatarForm.invalid">Save</button>
+          <button type="button" class="btn" (click)="resetAvatarForm()">Reset</button>
+          <button type="button" class="btn" (click)="deleteAvatar()">Delete</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="form-container">
+    <div *ngIf="user">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="control-group">
+          <label for="username">Username</label>
+          <input formControlName="name" type="text " [(ngModel)] = "user.name" id="username"/>
+        </div>
+        <div class="validation" *ngIf="form.get('name').touched&&form.get('name').invalid">
+          <small>Please provide a username 3-20 characters long</small>
+        </div>
+        <div class="control-group">
+          <label for="email">Email</label>
+          <input formControlName="email" type="email" [(ngModel)]="user.email" id="email"/>
+        </div>
+        <div class="validation" *ngIf="form.get('email').touched&&form.get('email').invalid">
+          <small>Please provide a correct email</small>
+        </div>
+        <div class="control-group">
+          <label for="password">New (or current) password</label>
+          <input formControlName="password" type="password" id="password"/>
+        </div>
+        <div class="validation" *ngIf="form.get('password').touched&&form.get('password').invalid">
+          <small>Please provide a password 9-20 characters long</small>
+        </div>
+        <div class="btn-group">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-success">Save</button>
+          <button type="button" (click)="reset()" class="btn">Reset</button>
+          <button type="button" (click)="logoutAll()" class="btn btn-delete">Logout From All Devices</button>
+          <button type="button" (click)="delete()" class="btn btn-delete">Delete Profile And All Data</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</section>

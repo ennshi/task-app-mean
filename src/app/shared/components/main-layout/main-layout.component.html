@@ -1,0 +1,21 @@
+<app-alert>git</app-alert>
+<nav class="navbar main">
+  <h1><a [routerLink]="'/'">TasksToDo</a></h1>
+  <ul>
+    <li>
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="auth.isAuthenticated() ? '/tasks' : '/login'" routerLinkActive="active">Tasks</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="auth.isAuthenticated() ? '/profile' : '/login'" routerLinkActive="active">Profile</a>
+    </li>
+    <li >
+      <a *ngIf="auth.isAuthenticated()" href="#" (click)="logout($event)">Logout</a>
+    </li>
+  </ul>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

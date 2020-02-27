@@ -1,0 +1,36 @@
+<section class="form-container">
+  <h1>Sign Up</h1>
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="information" *ngIf="userService.userError$ | async as error">
+        <small>{{error}}</small>
+      </div>
+      <div class="control-group">
+        <label for="username">Username</label>
+        <input formControlName="name" type="text" id="username"/>
+      </div>
+      <div class="validation" *ngIf="form.get('name').touched&&form.get('name').invalid">
+        <small>Please provide a username 3-20 characters long</small>
+      </div>
+      <div class="control-group">
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" id="email"/>
+      </div>
+      <div class="validation" *ngIf="form.get('email').touched&&form.get('email').invalid">
+        <small>Please provide a correct email</small>
+      </div>
+      <div class="control-group">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" id="password"/>
+      </div>
+      <div class="validation" *ngIf="form.get('password').touched&&form.get('password').invalid">
+        <small>Please provide a password 9-20 characters long</small>
+      </div>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
+        <button type="reset" class="btn btn-reset">Reset</button>
+      </div>
+      <a [routerLink]="'/login'">Already have an account</a>
+    </form>
+  </div>
+</section>

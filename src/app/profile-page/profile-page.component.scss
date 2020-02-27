@@ -1,0 +1,73 @@
+.profile-container {
+  background-color: var(--light-color);
+  max-width: 23rem;
+  margin: 1rem auto;
+  border-radius: 30px;
+  width: content-box;
+  .form-container {
+    background-color: transparent;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .btn-group {
+    max-width: 23rem;
+    justify-content: center;
+  }
+  .img-container {
+    width: 192px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+  }
+  .btn-delete {
+    font-size: .9rem;
+  }
+}
+
+#avatar-container {
+  margin: .5rem auto;
+  header {
+    padding-top: 1rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    h1 {
+      color: var(--danger-color);
+      font-family: 'Suez One', serif;
+      font-size: 1.7rem;
+      font-weight: normal;
+    }
+  }
+  .btn {
+    font-size: .7rem;
+    margin: .3rem;
+    height: 1.6rem;
+  }
+  .btn-group {
+    max-width: 12rem;
+  }
+  .control-group {
+    flex-direction: column;
+    justify-content: center;
+    margin: .5rem auto;
+    width: 80%;
+    input {
+      max-width: 10rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .profile-container {
+    max-width: 710px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
