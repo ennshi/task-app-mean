@@ -26,18 +26,12 @@ nav {
   width: 100%;
 }
 .navbar {
-  display: flex;
-  justify-content: space-between;
   background-color: var(--dark-color);
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 1rem 2rem;
   z-index: 1;
   width: 100%;
   margin-bottom: 1rem;
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
   h1 a {
     color: var(--danger-color);
     font-family: 'Suez One', serif;
@@ -45,11 +39,34 @@ nav {
     letter-spacing: 0.02rem;
     font-weight: normal;
   }
+  #menuButton-wrap {
+    width: 100%;
+    text-align: right;
+    margin-top: -1.9rem;
+  }
+  button {
+    background-color: transparent;
+    color: var(--light-color);
+    text-align: right;
+    i {
+      font-size: 1.8rem;
+    }
+  }
+  ul {
+    margin-top: .5rem;
+  }
+  li {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-top: .7rem;
+  }
+  li:last-child {
+    padding-bottom: .7rem;
+  }
   li a {
     color: var(--light-color);
-    padding: 0.45rem;
-    margin: 0 0.25rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.02rem;
     &:hover {
       color: var(--success-color);
@@ -211,6 +228,32 @@ button:disabled {
   background-color: var(--light-color);
   color: darkgrey;
   cursor: not-allowed;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+    li {
+      width: fit-content;
+      text-align: center;
+      padding-top: 0;
+      a {
+        padding: 0.45rem;
+        margin: 0 0.25rem;
+        font-size: 1.2rem;
+      }
+    }
+    li:last-child {
+      padding-bottom: 0;
+    }
+  }
 }
 
 
