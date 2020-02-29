@@ -24,7 +24,7 @@ form {
 textarea {
   margin: .5rem;
   width: 48vw;
-  max-width: 20rem;
+  max-width: 18rem;
   font-size: 1.2rem;
   padding-left: .5rem;
   min-height: 2.5rem;
@@ -74,14 +74,15 @@ fieldset {
 }
 @media screen and (min-width: 710px) {
   .task {
-    width: 30rem;
+    width: 28rem;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   form {
     margin: 0 1rem;
   }
   .task {
-    width: 33rem;
+    width: 42vw;
+    max-width: 35rem;
   }
 }
