@@ -1,68 +1,103 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+section {
+  color: white;
+  max-width: 80vw;
+  margin-top: 1rem;
+}
 span {
   color: var(--danger-color);
   font-family: 'Suez One', serif;
-}
-section{
-  min-width: 40vw;
-  max-width: 16rem;
-  margin: 2rem auto;
-  color: white;
-  header {
-    text-align: center;
-    width: 100%;
-  }
+  font-size: 1.2rem;
 }
 
 h1 {
   font-weight: normal;
-  letter-spacing: 0.04rem;
-  line-height: 2rem;
+  letter-spacing: 0.02rem;
+  font-size: 1rem;
+  line-height: 1.3rem;
 }
 
 button {
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
-
-p {
-  margin-top: .5rem;
+.summary {
+  font-size: 1rem;
+  letter-spacing: 0.04rem;
+  line-height: 1.5rem;
+  width: 15rem;
+}
+#p-login {
+  margin-top: 2rem;
   color: var(--addition-color);
   animation: paragraph;
   animation-duration: 5s;
   text-align: center;
   animation-timing-function: ease-in;
+  font-size: 1rem;
 }
 
-#img-block {
-  img {
-    max-width: 10rem;
-    margin-top: .5rem;
-    &:hover {
-      animation: turn 1s infinite;
-      animation-timing-function: linear;
-    }
-  }
+img {
+  width: 80vw;
+  max-width: 35rem;
+  margin: 1rem;
+  box-sizing: border-box;
 }
-#login-wrap {
+
+ul {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
-
-@media screen and (min-width: 750px) {
-  #login-block {
-    margin-right: 4rem;
+li {
+  padding: 1rem;
+  button {
+    letter-spacing: 0.06rem;
+    font-size: .9rem;
+    color: white;
+    background-color: transparent;
   }
-  #img-block {
-    img {
-      margin-left: -3rem;
+}
+@media screen and (min-width: 710px) {
+  main {
+    width: 100%;
+    justify-content: center;
+  }
+  section {
+    width: 40vw;
+  }
+  img {
+    width: 40vw;
+  }
+  ul {
+    margin-bottom: 1rem;
+  }
+  li {
+    padding: 0 1rem;
+  }
+  #left-side {
+    margin-top: 5rem;
+    margin-right: 2rem;
+    max-width: 35rem;
+    button {
+      margin-top: 2rem;
+    }
+  }
+  .summary {
+    margin: 0 auto;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    width: 25rem;
+    span {
+      font-size: 1.4rem;
     }
   }
 }
-@keyframes turn {
-  from { transform: rotate(0deg);}
-  to { transform: rotate(360deg);}
-}
+
 @keyframes paragraph {
   from {opacity: 0;}
   to {opacity: 1}

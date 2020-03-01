@@ -6,3 +6,8 @@ export interface Task {
   owner?: string;
   updatedAt?: string;
 }
+
+export interface TaskNum {
+  noncompleted: number;
+  urgent: number;
+}

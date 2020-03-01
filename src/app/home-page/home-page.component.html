@@ -1,16 +1,33 @@
-<section>
-  <header>
-    <h1><span>TasksToDo</span> will help you to organize your daily routine. Don't forget about your plans and duties.</h1>
-  </header>
-  <section id="login-wrap">
-    <div id="login-block" *ngIf="!isAuth">
-      <p>Login to continue</p>
+<main>
+  <section id="left-side">
+    <div class="summary" *ngIf="!isAuth; else loggedIn">
+      <p>Create tasks to do, choose its priority and check when its done.</p>
+      <p id="p-login">Login to continue</p>
       <div class="btn-group">
         <a [routerLink]="'/login'"><button class="btn btn-success">Log In</button></a>
       </div>
     </div>
-    <div id="img-block">
-      <img src="../../assets/list.gif" alt="todo list">
+    <ng-template #loggedIn>
+      <div>
+        <div class="summary">
+          <p><span>You have:</span></p>
+          <p><span>{{tasksNoncompleted}}</span> tasks to do</p>
+          <p><span>{{tasksUrgent}}</span> high priority tasks</p>
+        </div>
+        <div class="btn-group">
+          <a [routerLink]="'/tasks'"><button class="btn btn-success">My Tasks</button></a>
+        </div>
+      </div>
+    </ng-template>
+  </section>
+  <section id="right-side">
+    <img src="../../assets/bg.webp" alt="todo list with people and clocks">
+    <div id="description">
+      <h1><span>TasksToDo</span> will help you to organize your daily routine. Don't forget about your plans and duties.</h1>
+      <ul>
+        <li><button>About</button></li>
+        <li><button>Contact</button></li>
+      </ul>
     </div>
   </section>
-</section>
+</main>

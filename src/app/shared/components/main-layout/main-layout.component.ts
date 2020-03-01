@@ -21,6 +21,7 @@ export class MainLayoutComponent implements OnInit {
   logout(event: Event) {
     event.preventDefault();
     this.auth.logoutOnClick().subscribe(() => {
+      this.menuCollapsed = !this.menuCollapsed;
       this.auth.logout();
       this.router.navigate(['/', 'login']);
     });

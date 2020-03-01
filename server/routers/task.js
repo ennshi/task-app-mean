@@ -50,6 +50,19 @@ router.get('/api/tasks', auth, async (req, res) => {
     }
 });
 
+router.get('/tasksNumber', auth, async (req, res) => {
+  const match = {completed : false};
+  await req.user.populate({
+    path: 'tasks',
+    match,
+  }).execPopulate();
+  try {
+    res.send({noncompleted: req.user.tasks.length,
+      urgent: req.user.tasks.filter(task => task.priority === 2).length});
+  } catch(e) {
+    res.status(500).send();
+  }
+});
 
 router.post('/api/tasks', auth, async (req, res) => {
     const task = new Task({
