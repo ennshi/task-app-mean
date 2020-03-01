@@ -29,7 +29,11 @@ button {
   font-size: 1rem;
   letter-spacing: 0.04rem;
   line-height: 1.5rem;
-  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80vw;
+  text-align: center;
 }
 #p-login {
   margin-top: 2rem;
@@ -95,6 +99,9 @@ li {
     span {
       font-size: 1.4rem;
     }
+  }
+  #description {
+    max-width: 35rem;
   }
 }
 
