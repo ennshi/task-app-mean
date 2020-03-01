@@ -43,7 +43,7 @@
     </div>
   </section>
 <section class="right-block" infiniteScroll
-         [infiniteScrollDistance]="2"
+         [infiniteScrollDistance]="3"
          [infiniteScrollThrottle]="500"
          (scrolled)="onScroll()">
   <div class="control-group">
@@ -51,7 +51,7 @@
     <select [(ngModel)]="query" id="filter" (change)="setQuery()">
       <option value="updatedAt:desc" selected>Date</option>
       <option value="priority:desc">Priority</option>
-      <option value="completed:asc">Non-completed first</option>
+      <option value="completed:asc">Noncompleted first</option>
       <option value="completed:desc">Completed first</option>
     </select>
   </div>
