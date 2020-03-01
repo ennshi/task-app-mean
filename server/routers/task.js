@@ -50,7 +50,7 @@ router.get('/api/tasks', auth, async (req, res) => {
     }
 });
 
-router.get('/tasksNumber', auth, async (req, res) => {
+router.get('/api/tasksNumber', auth, async (req, res) => {
   const match = {completed : false};
   await req.user.populate({
     path: 'tasks',
