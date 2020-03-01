@@ -6,13 +6,13 @@
   </div>
   <ul *ngIf="auth.isAuthenticated()&&!menuCollapsed">
     <li>
-      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="menuCollapsed = !menuCollapsed">Home</a>
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="collapseMenu()">Home</a>
     </li>
     <li>
-      <a [routerLink]="'/tasks'" routerLinkActive="active" (click)="menuCollapsed = !menuCollapsed">Tasks</a>
+      <a [routerLink]="'/tasks'" routerLinkActive="active" (click)="collapseMenu()">Tasks</a>
     </li>
     <li>
-      <a [routerLink]="'/profile'" routerLinkActive="active" (click)="menuCollapsed = !menuCollapsed">Profile</a>
+      <a [routerLink]="'/profile'" routerLinkActive="active" (click)="collapseMenu()">Profile</a>
     </li>
     <li >
       <a href="#" (click)="logout($event)">Logout</a>
