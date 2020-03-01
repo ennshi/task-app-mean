@@ -14,7 +14,10 @@
         <div class="control-group">
           <input type="file" id="avatar" formControlName="avatarImg" (change)="selectImg($event)"/>
           <div class="validation" *ngIf="avatarForm.invalid && avatarForm.touched && !avatarForm.pristine">
-            <small>Please add an avatar (jpg, jpeg or png) and smaller than 1MB</small>
+            <small>Please add an avatar (jpg, jpeg or png)</small>
+          </div>
+          <div class="information" *ngIf="avatar.errorAvatar$ | async as error">
+            <small>{{error}}</small>
           </div>
         </div>
         <div class="btn-group">
