@@ -1,10 +1,13 @@
-# MeanTaskApp
+# TasksToDo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+MEAN project using [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
-## Development server
+## Prerequisites
+The server running the application should have NodeJS (8.x) and MongoDB installed. Follow the instruction from https://github.com/ennshi/task-app-nodejs to set variable for server.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Development serve
+
+Run `npm run dev` for development. Navigate to `http://localhost:PORT_set_for_server/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
