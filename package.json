@@ -33,7 +33,7 @@
     "rxjs": "~6.5.4",
     "sharp": "^0.24.1",
     "tslib": "^1.10.0",
-    "validator": "^12.2.0",
+    "validator": "^13.7.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
